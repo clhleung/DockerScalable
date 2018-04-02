@@ -1,0 +1,8 @@
+clhleung (Clement Leung)
+Role: Created deletion of nodes and key balancing if a new node is added to kvs service
+
+jmiao4 (Jian Hao Miao)
+Role: Worked on key insertion when nodes are created. Formatted and adjusted code to be more compatible with multiple containers. 
+
+gachow (Greg Chow)
+Role: Provided some pseudocode

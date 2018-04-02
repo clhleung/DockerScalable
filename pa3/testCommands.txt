@@ -1,0 +1,27 @@
+ docker run -d -p 8083:8080 --net=mynet --ip=10.0.0.3 -e VIEW="10.0.0.3:8080,10.0.0.4:8080,10.0.0.5:8080,10.0.0.6:8080,10.0.0.7:8080" -e ip_port="10.0.0.3:8080" hw3
+ 
+ docker run -d -p 8084:8080 --net=mynet --ip=10.0.0.4 -e VIEW="10.0.0.3:8080,10.0.0.4:8080,10.0.0.5:8080,10.0.0.6:8080,10.0.0.7:8080" -e ip_port="10.0.0.4:8080" hw3
+ 
+ docker run -d -p 8085:8080 --net=mynet --ip=10.0.0.5 -e VIEW="10.0.0.3:8080,10.0.0.4:8080,10.0.0.5:8080,10.0.0.6:8080,10.0.0.7:8080" -e ip_port="10.0.0.5:8080" hw3
+ 
+ docker run -d -p 8086:8080 --net=mynet --ip=10.0.0.6 -e VIEW="10.0.0.3:8080,10.0.0.4:8080,10.0.0.5:8080,10.0.0.6:8080,10.0.0.7:8080" -e ip_port="10.0.0.6:8080" hw3
+ 
+ docker run -d -p 8087:8080 --net=mynet --ip=10.0.0.7 -e VIEW="10.0.0.3:8080,10.0.0.4:8080,10.0.0.5:8080,10.0.0.6:8080,10.0.0.7:8080" -e ip_port="10.0.0.7:8080" hw3
+ 
+ docker run -d -p 8088:8080 --net=mynet --ip=10.0.0.8 -e ip_port="10.0.0.8:8080" hw3
+ 
+ curl -X PUT -d ip_port=10.0.0.8:8080 -d type=add 192.168.99.100:8083/kvs/view_update
+ 
+  curl -X PUT -d key=bitch -d value=add 192.168.99.100:8088/kvs
+ 
+ docker stop $(docker ps -q)
+ 
+docker run -p 8081:8080 --net=mynet --ip=10.0.0.20 -e VIEW="10.0.0.20:8080,10.0.0.21:8080" -e "ip_port"="10.0.0.20:8080" hw3
+
+docker run -p 8082:8080 --net=mynet --ip=10.0.0.21 -e VIEW="10.0.0.20:8080,10.0.0.21:8080" -e "ip_port"="10.0.0.21:8080" hw3
+
+docker run -p 8083:8080 --net=mynet --ip=10.0.0.22 -e  "ip_port"="10.0.0.22:8080" hw3
+
+"http://192.168.99.100:8083" + cur_node.access_port + "/kvs/view_update", data={'ip_port':10.0.0.22 + ":8080", "type":"add"
+
+PUT 192.168.99.100:8081/kvs/view_update -d "ip_port=10.0.0.22:8080&type=add"
